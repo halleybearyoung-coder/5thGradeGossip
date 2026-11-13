@@ -1,1 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fifth Grade Gossip Center</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka for playful headings, Inter for readable text, Patrick Hand for notebook feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Inter:wght@400;500;600&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Notebook paper background effect */
+            background-color: #fdfbf7;
+            background-image: 
+                linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+                linear-gradient(#e5e7eb .1em, transparent .1em);
+            background-size: 100% 1.5em;
+        }
+        
+        /* Adjust background for mobile so the margin line doesn't cut through text */
+        @media (max-width: 640px) {
+            body {
+                background-image: linear-gradient(#e5e7eb .1em, transparent .1em);
+            }
+        }
 
+        h1, h2, h3, .font-playful {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        .font-handwriting {
+            font-family: 'Patrick Hand', cursive;
+        }
+
+        /* Custom subtle sticker shadow */
+        .sticker-card {
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .sticker-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.18);
+        }
+
+        /* Tape effect for cards */
+        .tape {
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            backdrop-filter: blur(2px);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800 pb-16">
+
+    <!-- Top Secret Banner -->
+    <div class="bg-amber-400 border-b-2 border-slate-900 py-1.5 px-4 text-center font-playful font-bold text-xs sm:text-sm tracking-wider uppercase text-slate-900 flex items-center justify-center gap-2">
+        <i data-lucide="lock" class="w-4 h-4"></i>
+        <span>Official 5th Grade HQ • No Teachers Allowed!</span>
+        <i data-lucide="lock" class="w-4 h-4"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header class="max-w-5xl mx-auto pt-8 pb-6 px-4 sm:px-8">
+        <div class="bg-white border-4 border-slate-900 rounded-3xl p-6 sm:p-8 sticker-card relative overflow-hidden">
+            <!-- Decorative corner badge -->
+            <div class="hidden sm:flex absolute -right-8 top-6 bg-rose-500 text-white font-playful font-bold text-xs py-1 px-10 rotate-45 border-y-2 border-slate-900 shadow-sm">
+                TOP SECRET
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-indigo-100 text-indigo-800 border-2 border-indigo-900 px-3 py-1 rounded-full text-xs font-bold mb-3">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        <span>FIFTH GRADE EXCLUSIVE</span>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
+                        The Fifth Grade <span class="text-rose-500 underline decoration-wavy decoration-amber-400">Gossip</span> Center
+                    </h1>
+                    <p class="font-handwriting text-xl sm:text-2xl text-slate-600 mt-2">
+                        "Official Ship Names, Google Meet Codes, Weekly Newspaper & Photos."
+                    </p>
+                </div>
+
+                <!-- Navigation Tabs -->
+                <nav class="flex items-center gap-3 w-full md:w-auto justify-center">
+                    <button onclick="switchPage('home')" id="nav-home" class="flex-1 md:flex-initial bg-slate-900 text-white font-playful font-bold text-base sm:text-lg px-6 py-3.5 rounded-2xl border-4 border-slate-900 sticker-card flex items-center justify-center gap-2 cursor-pointer transition">
+                        <i data-lucide="home" class="w-5 h-5"></i>
+                        <span>Gossip Hub</span>
+                    </button>
+                    <button onclick="switchPage('photos')" id="nav-photos" class="flex-1 md:flex-initial bg-amber-300 hover:bg-amber-200 text-slate-900 font-playful font-bold text-base sm:text-lg px-6 py-3.5 rounded-2xl border-4 border-slate-900 sticker-card flex items-center justify-center gap-2 cursor-pointer transition">
+                        <i data-lucide="camera" class="w-5 h-5"></i>
+                        <span>Photos</span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN HUB PAGE -->
+    <main id="page-home" class="max-w-5xl mx-auto px-4 sm:px-8 space-y-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- SHIP NAMES CARD -->
+            <section class="bg-rose-50 border-4 border-slate-900 rounded-3xl p-6 sm:p-8 sticker-card relative">
+                <div class="tape w-28 h-6 absolute -top-3 left-1/2 -translate-x-1/2 -rotate-1 border border-slate-300/60"></div>
+                
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-rose-400 border-2 border-slate-900 rounded-2xl flex items-center justify-center text-white shadow-sm">
+                        <i data-lucide="heart" class="w-6 h-6 fill-current"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Ship Names 💌</h2>
+                        <p class="text-xs font-bold uppercase tracking-wider text-rose-700">Official Pairings List</p>
+                    </div>
+                </div>
+
+                <ul class="space-y-3">
+                    <li class="bg-white border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between gap-2 shadow-sm">
+                        <span class="font-medium text-slate-700 text-sm sm:text-base">Chloe &amp; Clayton</span>
+                        <span class="bg-rose-200 text-rose-950 border border-rose-900 font-playful font-bold px-3 py-1 rounded-xl text-sm sm:text-base">Chlotan</span>
+                    </li>
+                    <li class="bg-white border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between gap-2 shadow-sm">
+                        <span class="font-medium text-slate-700 text-sm sm:text-base">Cecilia &amp; Eron</span>
+                        <span class="bg-rose-200 text-rose-950 border border-rose-900 font-playful font-bold px-3 py-1 rounded-xl text-sm sm:text-base">Erlia</span>
+                    </li>
+                    <li class="bg-white border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between gap-2 shadow-sm">
+                        <span class="font-medium text-slate-700 text-sm sm:text-base">Halley &amp; Kyna</span>
+                        <span class="bg-rose-200 text-rose-950 border border-rose-900 font-playful font-bold px-3 py-1 rounded-xl text-sm sm:text-base">Kyley</span>
+                    </li>
+                    <li class="bg-white border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between gap-2 shadow-sm">
+                        <span class="font-medium text-slate-700 text-sm sm:text-base">Kyna &amp; Austin (Chen)</span>
+                        <span class="bg-rose-200 text-rose-950 border border-rose-900 font-playful font-bold px-3 py-1 rounded-xl text-sm sm:text-base">Kyntin</span>
+                    </li>
+                    <li class="bg-white border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between gap-2 shadow-sm">
+                        <span class="font-medium text-slate-700 text-sm sm:text-base">Halley &amp; Ellie</span>
+                        <span class="bg-rose-200 text-rose-950 border border-rose-900 font-playful font-bold px-3 py-1 rounded-xl text-sm sm:text-base">Ellaey</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- GOOGLE MEET CODES CARD -->
+            <section class="bg-emerald-50 border-4 border-slate-900 rounded-3xl p-6 sm:p-8 sticker-card relative flex flex-col justify-between">
+                <div class="tape w-28 h-6 absolute -top-3 left-1/2 -translate-x-1/2 rotate-1 border border-slate-300/60"></div>
+
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-emerald-400 border-2 border-slate-900 rounded-2xl flex items-center justify-center text-slate-900 shadow-sm">
+                            <i data-lucide="video" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Google Meet Codes 💻</h2>
+                            <p class="text-xs font-bold uppercase tracking-wider text-emerald-800">Click any code to copy</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <button onclick="copyCode('hi-hi-hi')" class="w-full bg-white hover:bg-emerald-100 active:scale-[0.99] border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between transition cursor-pointer group">
+                            <code class="font-mono font-bold text-base sm:text-lg text-slate-900">hi-hi-hi</code>
+                            <span class="text-xs font-playful font-bold bg-emerald-200 text-emerald-950 border border-emerald-900 px-2.5 py-1 rounded-lg flex items-center gap-1 group-hover:bg-emerald-300">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                            </span>
+                        </button>
+
+                        <button onclick="copyCode('hello-hello-hello')" class="w-full bg-white hover:bg-emerald-100 active:scale-[0.99] border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between transition cursor-pointer group">
+                            <code class="font-mono font-bold text-base sm:text-lg text-slate-900">hello-hello-hello</code>
+                            <span class="text-xs font-playful font-bold bg-emerald-200 text-emerald-950 border border-emerald-900 px-2.5 py-1 rounded-lg flex items-center gap-1 group-hover:bg-emerald-300">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                            </span>
+                        </button>
+
+                        <button onclick="copyCode('ha-ll-ey')" class="w-full bg-white hover:bg-emerald-100 active:scale-[0.99] border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between transition cursor-pointer group">
+                            <code class="font-mono font-bold text-base sm:text-lg text-slate-900">ha-ll-ey</code>
+                            <span class="text-xs font-playful font-bold bg-emerald-200 text-emerald-950 border border-emerald-900 px-2.5 py-1 rounded-lg flex items-center gap-1 group-hover:bg-emerald-300">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                            </span>
+                        </button>
+
+                        <button onclick="copyCode('Cl-ay-ton')" class="w-full bg-white hover:bg-emerald-100 active:scale-[0.99] border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between transition cursor-pointer group">
+                            <code class="font-mono font-bold text-base sm:text-lg text-slate-900">Cl-ay-ton</code>
+                            <span class="text-xs font-playful font-bold bg-emerald-200 text-emerald-950 border border-emerald-900 px-2.5 py-1 rounded-lg flex items-center gap-1 group-hover:bg-emerald-300">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                            </span>
+                        </button>
+
+                        <button onclick="copyCode('Au-st-in')" class="w-full bg-white hover:bg-emerald-100 active:scale-[0.99] border-2 border-slate-900 rounded-2xl p-3.5 flex items-center justify-between transition cursor-pointer group">
+                            <code class="font-mono font-bold text-base sm:text-lg text-slate-900">Au-st-in</code>
+                            <span class="text-xs font-playful font-bold bg-emerald-200 text-emerald-950 border border-emerald-900 px-2.5 py-1 rounded-lg flex items-center gap-1 group-hover:bg-emerald-300">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- NEWSPAPER LINK (WEEKLY) BANNER -->
+        <section class="bg-amber-100 border-4 border-slate-900 rounded-3xl p-6 sm:p-8 sticker-card relative">
+            <div class="tape w-32 h-6 absolute -top-3 left-1/2 -translate-x-1/2 border border-slate-300/60"></div>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <div class="w-14 h-14 bg-amber-400 border-2 border-slate-900 rounded-2xl flex items-center justify-center text-slate-900 shrink-0 shadow-sm">
+                        <i data-lucide="newspaper" class="w-7 h-7"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Newspaper Link (Weekly) 📰</h2>
+                        <p class="font-handwriting text-xl text-slate-700 mt-0.5">The hottest weekly edition straight from the 5th grade press!</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border-2 border-dashed border-slate-900 px-6 py-3 rounded-2xl font-playful font-bold text-slate-600 flex items-center gap-2 shrink-0">
+                    <i data-lucide="clock" class="w-5 h-5 text-amber-600"></i>
+                    <span>(coming soon)</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PHOTOS PAGE (Hidden by default) -->
+    <main id="page-photos" class="hidden max-w-5xl mx-auto px-4 sm:px-8">
+        <div class="bg-white border-4 border-slate-900 rounded-3xl p-6 sm:p-10 sticker-card relative">
+            <div class="tape w-32 h-6 absolute -top-3 left-1/2 -translate-x-1/2 -rotate-1 border border-slate-300/60"></div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 pb-6 border-b-2 border-slate-200">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Fifth Grade Photo Wall 📸</h2>
+                    <p class="font-handwriting text-xl text-slate-600 mt-1">Memories, snapshots, and legendary moments!</p>
+                </div>
+                <button onclick="switchPage('home')" class="bg-slate-100 hover:bg-slate-200 text-slate-900 font-playful font-bold px-4 py-2.5 rounded-xl border-2 border-slate-900 flex items-center gap-2 cursor-pointer transition">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    <span>Back to Gossip Hub</span>
+                </button>
+            </div>
+
+            <!-- Photo Slots Grid (Ready for you to add real photos later!) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Polaroid Slot 1: Hmm... Sus -->
+                <div class="bg-slate-50 border-4 border-slate-900 rounded-2xl p-4 pb-6 sticker-card flex flex-col">
+                    <div class="aspect-square bg-indigo-100 border-2 border-slate-900 rounded-xl overflow-hidden relative group">
+                        <img src="hmm-sus.jpg" 
+                             onerror="this.onerror=null; this.src='https://placehold.co/400x400/e0e7ff/1e1b4b?text=Hmm...+Sus+%F0%9F%A4%94';" 
+                             alt="Hmm... Sus" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-handwriting text-2xl font-bold text-center text-slate-900 mt-4">Hmm... Sus 🤔</p>
+                </div>
+
+                <!-- Polaroid Slot 2 -->
+                <div class="bg-slate-50 border-4 border-slate-900 rounded-2xl p-4 pb-6 sticker-card flex flex-col">
+                    <div class="aspect-square bg-rose-100 border-2 border-slate-900 rounded-xl flex flex-col items-center justify-center text-rose-800 p-4 text-center">
+                        <i data-lucide="image-plus" class="w-12 h-12 mb-2 opacity-75"></i>
+                        <span class="font-playful font-bold text-sm">Photo Slot #2</span>
+                        <span class="text-xs opacity-75 mt-1">(Coming Soon)</span>
+                    </div>
+                    <p class="font-handwriting text-xl text-center text-slate-700 mt-4">Recess Adventures 🛝</p>
+                </div>
+
+                <!-- Polaroid Slot 3 -->
+                <div class="bg-slate-50 border-4 border-slate-900 rounded-2xl p-4 pb-6 sticker-card flex flex-col">
+                    <div class="aspect-square bg-amber-100 border-2 border-slate-900 rounded-xl flex flex-col items-center justify-center text-amber-800 p-4 text-center">
+                        <i data-lucide="image-plus" class="w-12 h-12 mb-2 opacity-75"></i>
+                        <span class="font-playful font-bold text-sm">Photo Slot #3</span>
+                        <span class="text-xs opacity-75 mt-1">(Coming Soon)</span>
+                    </div>
+                    <p class="font-handwriting text-xl text-center text-slate-700 mt-4">Best Moments 🎉</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Custom Toast Notification Box -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-5 py-3 rounded-2xl border-2 border-emerald-400 shadow-xl font-playful flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 z-50">
+        <span class="text-xl">📋</span>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <script>
+        // Switch between Gossip Hub and Photos page
+        function switchPage(page) {
+            const homePage = document.getElementById('page-home');
+            const photosPage = document.getElementById('page-photos');
+            const navHome = document.getElementById('nav-home');
+            const navPhotos = document.getElementById('nav-photos');
+
+            if (page === 'photos') {
+                homePage.classList.add('hidden');
+                photosPage.classList.remove('hidden');
+
+                // Highlight Photos tab
+                navPhotos.classList.remove('bg-amber-300', 'hover:bg-amber-200', 'text-slate-900');
+                navPhotos.classList.add('bg-slate-900', 'text-white');
+
+                navHome.classList.remove('bg-slate-900', 'text-white');
+                navHome.classList.add('bg-amber-300', 'hover:bg-amber-200', 'text-slate-900');
+            } else {
+                photosPage.classList.add('hidden');
+                homePage.classList.remove('hidden');
+
+                // Highlight Gossip Hub tab
+                navHome.classList.remove('bg-amber-300', 'hover:bg-amber-200', 'text-slate-900');
+                navHome.classList.add('bg-slate-900', 'text-white');
+
+                navPhotos.classList.remove('bg-slate-900', 'text-white');
+                navPhotos.classList.add('bg-amber-300', 'hover:bg-amber-200', 'text-slate-900');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Copy Google Meet code using fallback-safe execCommand
+        function copyCode(code) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(`Copied Meet code: ${code}`);
+            } catch (err) {
+                showToast(`Code: ${code}`);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // Custom toast message
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 2500);
+        }
+
+        // Initialize icons on load
+        window.onload = function() {
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
